@@ -7,10 +7,10 @@ import java.awt.event.MouseEvent;
 public class AlgoVisualizer {
 
     // TODO: 创建自己的数据
-    private Data data;        // 数据
+    private Data[] data;        // 数据
     private AlgoFrame frame;    // 视图
 
-    public AlgoVisualizer(int sceneWidth, int sceneHeight, Data data){
+    public AlgoVisualizer(int sceneWidth, int sceneHeight, Data[] data){
 
         // 初始化数据
         // TODO: 初始化数据
@@ -30,7 +30,10 @@ public class AlgoVisualizer {
 
     // 动画逻辑
     private void run(){
-            frame.render(data);
+        for (int i = 0; i < data.length; i++) {
+            AlgoVisHelper.pause(500);
+            frame.render(data[i]);
+        }
         // TODO: 编写自己的动画逻辑
     }
 
@@ -44,13 +47,17 @@ public class AlgoVisualizer {
         int sceneHeight = 855;
 
         int N = 100; int low = 1; int high = 100;
-        DataSet population = new DataSet(N, low, high);
-        Sample samples = new Sample();
-        int n = 20; int repetition = 100000;
-        for (int i = 0; i < repetition; i ++)
-            samples.addSample(population.generateRandomSample(n));
-        int[] dist = samples.getDistribution(low, high);
-        Data data = new Data(dist, population.mean(), population.stDev(), samples.mean(), samples.stDev());
+        int n = 30; int repetition = 100000;
+        Data[] data = new Data[n];
+        for (int thisN = 1; thisN <= n; thisN++) {
+            DataSet population = new DataSet(N, low, high);
+            Sample samples = new Sample();
+            for (int i = 0; i < repetition; i ++)
+                samples.addSample(population.generateRandomSample(thisN));
+            int[] dist = samples.getDistribution(low, high);
+            Data thisData = new Data(dist, population.mean(), population.stDev(), samples.mean(), samples.stDev());
+            data[thisN - 1] = thisData;
+        }
         // TODO: 根据需要设置其他参数，初始化visualizer
         AlgoVisualizer visualizer = new AlgoVisualizer(sceneWidth, sceneHeight, data);
     }

@@ -43,7 +43,7 @@ public class AlgoVisualizer
             circles[i] = new Circle(x, y, R, mass, vx, vy, color, isFilled, canBeDestroyed);
         }
 
-        /*circles[0].x = 720;
+        circles[0].x = 720;
         circles[0].y = 400;
         circles[0].vx = 0;
         circles[0].vy = 0;
@@ -97,9 +97,9 @@ public class AlgoVisualizer
         circles[7].vx = 0;
         circles[7].vy = 965;
         circles[7].r = 3;
-        circles[7].mass = 0.05; // commet        */// reduced solar system
+        circles[7].mass = 0.05; // commet        // reduced solar system
 
-        circles[0].x = 720;
+        /* circles[0].x = 720;
         circles[0].y = 200;
         circles[0].vx = -1800;
         circles[0].vy = 0;
@@ -118,7 +118,7 @@ public class AlgoVisualizer
         circles[2].vx = 0;
         circles[2].vy = 0;
         circles[2].r = 25;
-        circles[2].mass = 5000000; // star 3   // three-body-problem
+        circles[2].mass = 5000000; // star 3   // three-body-problem */
 
         /* circles[0].x = 720;
         circles[0].y = 200;
@@ -275,7 +275,7 @@ public class AlgoVisualizer
     {
         int sceneWidth = 1440;
         int sceneHeight = 800;
-        int N = 3; // number of particles
+        int N = 8; // number of particles
         int R = 5; // diameter of particles
         double maximumMass = 10;
         int maximumSpeed = 100; // note that it is a component speed

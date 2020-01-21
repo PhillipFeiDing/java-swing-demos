@@ -5,11 +5,12 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 import java.util.Stack;
+import java.util.concurrent.TimeUnit;
 
 public class AlgoVisualizer {
 
     // TODO: 创建自己的数据
-    private static int DELAY = 1;
+    private static int DELAY = 2;
     private static int blockSide = 7;
 
     private MazeData data;        // 数据
@@ -40,6 +41,11 @@ public class AlgoVisualizer {
 
     // 动画逻辑
     private void run(){
+        try {
+            TimeUnit.SECONDS.sleep(20);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         setData(-1, -1,false);
 
         LinkedList<Position> queue = new LinkedList<Position>();

@@ -129,10 +129,10 @@ public class AlgoVisualizer
     {
         int sceneWidth = 1440;
         int sceneHeight = 800;
-        int N = 800; // number of particles
-        int R = 8; // diameter of particles
-        int maximumSpeed = 50; // note that it is a component speed
-        int numberOfColors = 2;
+        int N = 10; // number of particles
+        int R = 70; // diameter of particles
+        int maximumSpeed = 200; // note that it is a component speed
+        int numberOfColors = 10;
         boolean isFilled = true;
         boolean canBeDestroyed = true;
         boolean canCollideWithEachOther = true;
